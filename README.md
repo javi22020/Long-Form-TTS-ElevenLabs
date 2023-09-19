@@ -12,3 +12,5 @@ To use this script, you'll need an Internet connection and a (preferably) paid E
 - Check the text files in the 'texts' folder every time you run the program, to avoid generating the same audio twice or unnecesary audio.
 - If the number of characters in the ElevenLabs account isn't enough to generate audio for the text, a warning will be shown.
 - It's highly recommended to use a paid account, as the free tier only offers up to 10,000 characters.
+# Disclaimer
+- Don't use or modify this program to bypass ElevenLabs Terms of Service.
