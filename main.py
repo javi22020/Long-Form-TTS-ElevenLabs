@@ -1,11 +1,24 @@
 from elevenlabs.api import User
 from elevenlabs import set_api_key, generate
+import yaml
 import os
 
 # ---------------------------- CONFIGURACIÓN ---------------------------
 xi_api_key = "YOUR-ELEVENLABS-API-KEY-HERE"
-character_limit = 5000 # 2500 for free acounts, 5000 for paid accounts
+character_limit = 5000
 # ---------------------------- CONFIGURACIÓN ---------------------------
+
+with open('config.yaml', 'r') as archivo_yaml:
+    data = yaml.safe_load(archivo_yaml)
+
+if data["settings"]["xi-api-key"] == 0:
+    data["settings"]["xi-api-key"] = input("Paste your ElevenLabs API key: ")
+
+if data["settings"]["character-limit"] == 0:
+    data["settings"]["character-limit"] = input("Set your character chunk limit (2500 for free acounts, 5000 for paid accounts): ")
+
+xi_api_key = data["settings"]["xi-api-key"]
+character_limit = data["settings"]["character-limit"]
 
 
 def generar_audio(texto, api):
@@ -63,6 +76,6 @@ for i in range(len(list_path_texts)):
 
 print("Program has ended. ")
 input()
-exit()
+exit(0)
 
 
