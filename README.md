@@ -1,5 +1,11 @@
 # Long-Form-TTS-ElevenLabs
 This simple project aims to make easier long form TTS synthesis, using ElevenLabs API.
+# Downloading
+To get this project in your computer, download the code from Code > Download ZIP.
+Or type this command:
+```bash
+git clone https://github.com/javi22020/Long-Form-TTS-ElevenLabs.git
+```
 # How to use
 To use this script, you'll need an Internet connection and a (preferably) paid ElevenLabs account.
 1. Get your API key from https://elevenlabs.io/
