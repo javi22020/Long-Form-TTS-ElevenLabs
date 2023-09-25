@@ -5,16 +5,30 @@ import os
 
 # ---------------------------- CONFIGURACIÓN ---------------------------
 xi_api_key = "YOUR-ELEVENLABS-API-KEY-HERE"
-character_limit = 5000
+character_limit = 2500
 # ---------------------------- CONFIGURACIÓN ---------------------------
 
+
+text_cover = """
+---------------------------------------------------------------------------------------
+|      _                         ______                     _______ _______ _____     |
+|     | |                       |  ____|                   |__   __|__   __/ ____|    |
+|     | |     ___  _ __   __ _  | |__ ___  _ __ _ __ ___      | |     | | | (___      |
+|     | |    / _ \| '_ \ / _` | |  __/ _ \| '__| '_ ` _ \     | |     | |  \___ \     |
+|     | |___| (_) | | | | (_| | | | | (_) | |  | | | | | |    | |     | |  ____) |    |
+|     |______\___/|_| |_|\__, | |_|  \___/|_|  |_| |_| |_|    |_|     |_| |_____/     |
+|                         __/ |                                                       |
+|                        |___/                                                        |
+---------------------------------------------------------------------------------------\n\n
+"""
+print(text_cover)
 with open('config.yaml', 'r') as archivo_yaml:
     data = yaml.safe_load(archivo_yaml)
 
 if data["settings"]["xi-api-key"] == 0:
     data["settings"]["xi-api-key"] = input("Paste your ElevenLabs API key: ")
 
-if data["settings"]["character-limit"] == 0:
+while data["settings"]["character-limit"] != 2500 or data["settings"]["character-limit"] != 5000:
     data["settings"]["character-limit"] = input("Set your character chunk limit (2500 for free acounts, 5000 for paid accounts): ")
 
 xi_api_key = data["settings"]["xi-api-key"]
@@ -73,6 +87,7 @@ for i in range(len(list_path_texts)):
         os.mkdir("audios")
     with open("audios/tts-" + str(i) + ".mp3", "wb") as f:
         f.write(audiodef)
+    print("audios/tts-" + i + ".mp3 file save succesfully")
 
 print("Program has ended. ")
 input()
